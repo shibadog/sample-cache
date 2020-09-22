@@ -8,4 +8,4 @@ management:
 spring:
   cache:
     caffeine:
-      spec: maximumSize=500,expireAfterAccess=30s,recordStats
+      spec: maximumSize=500,expireAfterWrite=30s,recordStats
