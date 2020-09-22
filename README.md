@@ -32,7 +32,9 @@ http://localhost:8080/{key} にアクセス。
 やったこと
 
 * `application.yml` で `spring.cache.caffeine.spec` に `recordStats` を設定する必要あり。
-* 同様に、キャッシュ名も設定する必要あり？（よくわかっていない）
+* 同様に、キャッシュ名も設定する必要あり？ ~~（よくわかっていない）~~
+    * デフォルトでは、キャッシュ名を静的に記載しないとmicrometerに登録されないらしい。  
+      自力でmicrometerに動的登録をしている人を見つけたので真似てみた。
 * caffeineがmicrometerに対応しているから、prometheusで収集可能。
 * 収集した結果の可視化を試してみたダッシュボードを `./dev/grafana/test-dashborad.json` にエクスポート
 
