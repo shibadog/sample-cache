@@ -1,0 +1,24 @@
+version: '3'
+services:
+  app:
+    image: sample-cache:0.0.1-SNAPSHOT
+    container_name: app
+    ports:
+      - "8080:8080"
+    restart: always
+
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+    volumes:
+      - ./dev/docker:/etc/prometheus
+    command: "--config.file=/etc/prometheus/prometheus.yml"
+    ports:
+      - 9090:9090
+    restart: always
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    ports:
+      - 3000:3000
+    restart: always
